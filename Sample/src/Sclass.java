@@ -19,22 +19,7 @@ class oper
 	{
 		return n1/n2;
 	}
-	void push(Vector a)
-	{
-		;
-	}
-	float numpop(Vector<Float> a)//벡터에서 숫자를 pop해서 반환하는 함수
-	{
-		float num;
-		num=0;
-		if(a.size()>0)
-		{
-			//System.out.println("Q");
-			num=a.get(a.size()-1);
-			a.remove(a.size()-1);
-		}
-		return num; 
-	}
+	
 	boolean isnum(String str)
 	{
 		for(int i=0;i<str.length();i++)
@@ -58,6 +43,26 @@ class oper
 		else if(op.equals("/"))
 			return b/a;
 		return 0;
+	}
+}
+
+class Vstack extends Vector
+{
+	static void push(Vector a)
+	{
+		;
+	}
+	static float numpop(Vector<Float> a)//벡터에서 숫자를 pop해서 반환하는 함수
+	{
+		float num;
+		num=0;
+		if(a.size()>0)
+		{
+			//System.out.println("Q");
+			num=a.get(a.size()-1);
+			a.remove(a.size()-1);
+		}
+		return num; 
 	}
 }
 
@@ -150,7 +155,7 @@ public class Sclass extends oper
 				stk_last.add(Float.parseFloat(str));
 			else
 			{
-				stk_last.add(s.doop(s.numpop(stk_last),s.numpop(stk_last),str));
+				stk_last.add(s.doop(Vstack.numpop(stk_last),Vstack.numpop(stk_last),str));
 			}
 			//System.out.println(stk_last.get(stk_last.size()-1));
 		}
