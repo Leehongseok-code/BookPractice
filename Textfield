@@ -1,0 +1,65 @@
+import java.awt.*; 
+import java.awt.event.*; 
+import javax.swing.*;
+
+
+
+
+public class SClass extends JFrame{
+
+	private JPanel contentPane=new JPanel();
+	private JLabel la=new JLabel("HELLO");
+	private JTextField f=new JTextField();
+	public void FT() 
+	{
+		Container c=getContentPane();
+		c.setLayout(null);
+		c.addKeyListener(new MyKeyListener());
+		la.setLocation(50,50);
+		la.setSize(100,20);
+		c.add(la);
+		f.setLocation(50,10);
+		f.setSize(100,20);
+		f.addKeyListener(new MyKeyListener());
+		c.add(f);
+		setSize(200,200);
+		setVisible(true);
+		c.setFocusable(true);
+		c.requestFocus();
+		f.setFocusable(true);
+		f.requestFocus();
+	}
+	
+	class MyKeyListener extends KeyAdapter 
+	{ 
+		public void keyPressed(KeyEvent e)
+		{
+			int keyCode=e.getKeyCode();
+			switch(keyCode)
+			{
+			case KeyEvent.VK_UP:
+				la.setLocation(la.getX(), la.getY() -10); break; 
+			case KeyEvent.VK_DOWN:
+				la.setLocation(la.getX(), la.getY() + 10); break; 
+			case KeyEvent.VK_LEFT:
+				la.setLocation(la.getX()-10, la.getY() ); break; 
+			case KeyEvent.VK_RIGHT:
+				la.setLocation(la.getX()+10, la.getY() ); break; 
+			case KeyEvent.VK_ENTER:
+				la.setText(f.getText());
+				f.setText("");
+				break;
+				
+			}
+		}
+			
+	}
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		SClass s=new SClass();
+		s.FT();
+	}
+
+}
