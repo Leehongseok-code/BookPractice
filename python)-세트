@@ -1,0 +1,7 @@
+subject={"프밍문","창사표","영어"}
+existence="프밍문"in subject
+subject.remove("창사표")
+subject.add("심리학입문")
+print(subject)
+print(len(subject))
+
