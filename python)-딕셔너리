@@ -1,0 +1,7 @@
+price={'어묵':'500원','떡볶이':'3000원','라면':'3000원'}
+print(price)
+print(price['어묵'])
+price['야채김밥']='2500원'
+print(price)
+del price['어묵']
+print(price)
