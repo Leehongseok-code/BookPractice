@@ -1,0 +1,28 @@
+class Point
+{
+	int x,y;
+	public Point(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+	public boolean equals(Object obj)
+	{
+		Point p=(Point)obj;
+		if(p.x==x&&p.y==y)
+			return true;
+		else
+			return false;
+	}
+}
+public class Ex6_3 {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Point p1=new Point(10,30);
+		Point p2=new Point(10,30);
+		System.out.println(p1.equals(p2));
+	}
+
+}
