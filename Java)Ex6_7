@@ -1,0 +1,18 @@
+import java.util.*;
+public class Ex6_7 {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		String a="name=kitae&adddr=seoul&age=21";
+		StringTokenizer st=new StringTokenizer(a,"&");
+		int n=st.countTokens();
+		while(st.hasMoreTokens()==true)
+		{
+			String b=st.nextToken();
+			System.out.println(b);
+			System.out.println("토큰개수"+n);
+		}
+	}
+
+}
