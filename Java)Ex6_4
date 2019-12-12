@@ -1,0 +1,29 @@
+class Rect
+{
+	int width;
+	int height;
+	int area;
+	public Rect(int w,int h)
+	{
+		this.width=w;
+		this.height=h;
+		this.area=width*height;
+	}
+	public boolean equals(Object b)
+	{
+		boolean tf;
+		tf=((Rect)this).area==((Rect)b).area;
+		return tf;
+	}
+}
+public class Ex6_4 {
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Rect r1=new Rect(40,30);
+		Rect r2=new Rect(30,40);
+		System.out.println(r1.equals(r2));
+	}
+
+}
