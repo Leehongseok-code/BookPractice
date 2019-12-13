@@ -1,0 +1,62 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Ex9_4 extends JFrame
+{
+	private JLabel la=new JLabel("Test");
+
+	class Ml implements MouseListener
+	{
+		
+		public void mousePressed(MouseEvent e)
+		{
+			//JLabel t=(JLabel)e.getSource();
+			la.setLocation(e.getX(),e.getY());
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+	public Ex9_4()
+	{
+		setTitle("액션 이벤트 리스너");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Container c=getContentPane();
+		c.setLayout(null);
+		c.addMouseListener(new Ml());
+		c.setBackground(Color.orange);
+		
+		la.setSize(100,20);
+		c.add(la);
+		setSize(300,300);
+		setVisible(true);
+	}
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		new Ex9_4();
+	}
+
+}
