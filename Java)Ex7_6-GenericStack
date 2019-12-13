@@ -1,0 +1,48 @@
+import java.util.*;
+class gstack<T>
+{
+	int tos;
+	Object[] stk;
+	public gstack()
+	{
+		tos=0;
+		stk=new Object[10];
+	}
+	public void push(T item)
+	{
+		stk[tos]=item;
+		tos++;
+	}
+	public T pop()
+	{
+		if(tos==0)
+			return null;
+		else
+			{
+				tos--;
+				return (T)stk[tos];
+			}
+	}
+}
+public class Ex7_6 {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		gstack<String> g=new gstack<String>();
+		g.push("a");
+		g.push("b");
+		while(g.tos!=0)
+		{
+			System.out.println(g.pop());
+		}
+		gstack<Integer> g1=new gstack<Integer>();
+		g1.push(5);
+		g1.push(33);
+		while(g1.tos!=0)
+		{
+			System.out.println(g1.pop());
+		}
+	}
+
+}
