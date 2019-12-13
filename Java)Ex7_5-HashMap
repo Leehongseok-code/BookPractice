@@ -1,0 +1,20 @@
+import java.util.*;
+public class Ex7_5 {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		HashMap<String,String> h=new HashMap<String,String>();
+		h.put("apple","사과");
+		h.put("airplane", "비행기");
+		h.put("artificial","인공적인");
+		Scanner scanner=new Scanner(System.in);
+		String s=scanner.next();
+		s=h.get(s);
+		if(s==null)
+			System.out.println("찾을 수 없습니다.");
+		else
+			System.out.println(s);
+	}
+
+}
