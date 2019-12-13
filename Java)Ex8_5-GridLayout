@@ -1,0 +1,39 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+public class Ex8_1 extends JFrame 
+{
+	public Ex8_1()
+	{
+		setTitle("300*300스윙 프레임 만들기");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		
+		Container contentPane=getContentPane();
+		contentPane.setBackground(Color.ORANGE);
+		contentPane.setLayout(new GridLayout(1,10));
+		for(int i=0;i<9;i++)
+		{
+			JButton button=new JButton(Integer.toString(i));
+			contentPane.add(button);
+		}
+		//setContentPane(new MyPanel());
+		setSize(500,300);
+		setVisible(true);
+	}
+	class MyPanel extends JPanel
+	{
+		public MyPanel()
+		{
+			this.add(new JButton("Panel붙이기"));
+		}
+	}
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Ex8_1 ex=new Ex8_1();
+		
+	}
+	
+}
