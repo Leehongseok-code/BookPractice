@@ -1,0 +1,31 @@
+import java.util.*;
+public class Ex7_3 {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		Scanner scanner=new Scanner(System.in);
+		ArrayList<String> arr=new ArrayList<String>();
+		int maxidx=0;
+		int maxlength=0;
+		for(int i=0;i<4;i++)
+		{
+			String s=scanner.next();
+			arr.add(s);
+		}
+		for(int i=0;i<4;i++)
+		{
+			System.out.println(arr.get(i));
+		}
+		for(int i=0;i<arr.size();i++)
+		{
+			if(arr.get(i).length()>maxlength)
+				{
+					maxlength=arr.get(i).length();
+					maxidx=i;
+				}
+		}
+		System.out.println("가장 긴 이름은"+arr.get(maxidx));
+	}
+
+}
