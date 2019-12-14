@@ -1,0 +1,5 @@
+iceCream={'초코':700,'딸기':720,'녹차':730}
+iceCream['바닐라']=750
+for i in iceCream.keys():#'초코','딸기','녹차','바닐라'가 담긴 리스트 반환
+    iceCream[i]+=100
+print(iceCream)
