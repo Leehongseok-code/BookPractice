@@ -1,0 +1,14 @@
+#function
+def high_score(a):
+    mval=0
+    for i in range(6):
+        if mval<a[i]:
+            mval=a[i]
+    return mval
+
+#main
+v=[]
+for i in range(6):
+    num=(int(input("6명의 성적을 입력하시오:")))
+    v.append(num)
+print("최고 점수는",high_score(v)," 점입니다")
