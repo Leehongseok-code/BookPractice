@@ -1,0 +1,15 @@
+#function
+def money(klist,key):
+    if city in klist:
+        print(city,"까지의 금액은",klist[city],"입니다.")
+    else:
+        return 0
+
+
+
+
+#main
+ktx={"서울":"50000원","대전":"30000원","목포":"35000원","수원":"10000원"}
+city=input("서울/대전/목포/수원 중 한 곳을 선택해 주세요:")
+if money(ktx,city)==0:
+    print("운행 가능 지역이 아닙니다.")
