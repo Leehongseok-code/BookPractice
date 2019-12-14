@@ -1,0 +1,47 @@
+
+class SharedPrinter
+	{
+		public SharedPrinter()
+		{
+			;
+		}
+		synchronized void print(String s)
+		{
+			System.out.println(s);
+		}
+	}
+class Worker extends Thread
+{
+	private SharedPrinter p;
+	private String[] text;
+	public Worker(SharedPrinter p,String[] text)
+	{
+		this.p=p;this.text=text;
+	}
+	public void run()
+	{
+		for(int i=0;i<text.length;i++)
+		{
+			p.print(text[i]);
+		}
+	}
+}
+public class Ex12_5 
+{
+	
+	
+	public static void main(String[] args) 
+	{
+		//new Ex12_5();
+		// TOD__O Auto-generated method stub
+		SharedPrinter p=new SharedPrinter ();
+		String[]engText= {"Wise men say","only fools rush in",
+				"But I cant help","falling in love with you"};
+		String[]korText= {"동해물과 백두산이 마르고 닳도록","하느님이 보우하사 우리나라 만세","무궁화 삼천리 화려강산","대한 사람 대한으로 길이 보전하세"};
+		Thread th1=new Worker(p,engText);
+		Thread th2=new Worker(p,korText);
+		th1.start();
+		th2.start();
+	}
+
+}
