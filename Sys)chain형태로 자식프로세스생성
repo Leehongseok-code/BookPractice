@@ -18,6 +18,6 @@ int main(int argc,char* argv[])
 		          //부모프로세스면 return value가 자식의 id이므로 break
 	    break;
     fprintf(stderr,"i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
-		    i,(long)getpid(),(long)childpid);
+		    i,(long)getpid(),(long)getpid,(long)childpid);
     return 0;
 }
