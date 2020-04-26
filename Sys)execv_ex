@@ -1,0 +1,9 @@
+#include <unistd.h>
+#include <stdlib.h>
+int main()
+{
+    char* const av[]={"ls","-l",(char*)0};
+    execv("/bin/ls",av);
+    perror("execl failed to run ls");
+    exit(1);
+}
