@@ -14,8 +14,8 @@ int main(int argc,char* argv[])
     }
     n=atoi(argv[1]);
     for(i=1;i<n;i++)
-        if(childpid=fork())//프로세스가 자식프로세스면 return value가0 이므로 break하고, 
-		          //부모프로세스면 return value가 자식의 id이므로 계속진행
+        if(childpid=fork())//프로세스가 자식프로세스면 return value가0 이므로 진행하고, 
+		          //부모프로세스면 return value가 자식의 id이므로 break
 	    break;
     fprintf(stderr,"i:%d process ID:%ld parent ID:%ld child ID:%ld\n",
 		    i,(long)getpid(),(long)childpid);
