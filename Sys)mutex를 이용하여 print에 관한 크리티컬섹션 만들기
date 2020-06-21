@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<pthread.h>
+#include<stdlib.h>
+#include<unistd.h>
+
+//static int sum;
+
+//pthread_mutex_t mylock=PTHREAD_MUTEX_INITIALIZER;
+
+void* cal(void* var)
+{
+    static pthread_mutex_t mylock=PTHREAD_MUTEX_INITIALIZER;
+    //printf("pthread created\n");
+    //critical section을 만들지 않았을 경우, 순서대로 출력되지 않을 수 있음
+    //변경될 수 있음
+    pthread_mutex_lock(&mylock);
+    int* val=var;
+    *val=0;
+    printf("pthread created:%d\n",*val);
+    for(int i=0;i<5;i++)
+    {
+	(*val)+=1;
+	printf("curnum:%d\n",*val);
+        sleep(1);
+    }
+    pthread_mutex_unlock(&mylock);
+}
+
+void* readnum(void* var)
+{
+    int *val=var;
+    printf("readnum:%d\n",*val);
+}
+
+int main(void)
+{
+    int sum;
+    sum=0;
+    printf("hello\n");
+    pthread_t a,b,c;
+    pthread_create(&a,NULL,cal,(void*)&sum);
+    //sleep(1);
+    pthread_create(&b,NULL,cal,(void*)&sum);
+    //sleep(1);
+    pthread_create(&c,NULL,readnum,(void*)&sum);
+    sleep(10);
+    
+    return 0; 
+}
