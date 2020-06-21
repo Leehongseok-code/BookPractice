@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<signal.h>
+#include<unistd.h>
+#include<stdlib.h>
+
+struct sigaction act;
+struct sigaction act_old;
+
+void sigint_handler(int signo)
+{
+    int ndx;
+    printf("Ctrl-C키를 누르셨습니다.\n");
+    printf("3초 대기 중 Ctrl-Z키를 눌러 주세요.\n");
+    for(ndx=3;ndx>0;ndx--)
+    {
+        printf("%d초 남았습니다.\n",ndx);
+	sleep(1);
+    }
+    //sigaction(SIGINT,&act_old,NULL);
+}
+
+int main(void)
+{
+    //static struct sigaction act;
+    //static struct sigaction act_old;
+    act.sa_handler=sigint_handler;
+    sigfillset(&act.sa_mask);//시그널핸들러가 작동되는동안 모든 시그널을 pending시킨다.
+    sigfillset(&act_old.sa_mask);
+    sigaction(SIGINT,&act,&act_old);
+    while(1)
+    {
+        printf("printing....\n");
+	sleep(1);
+    }
+}
